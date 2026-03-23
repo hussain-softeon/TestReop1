@@ -19,7 +19,7 @@ public class CancelPO {
 
     @NamedComponent(group = "inbound", name = "cancelPO", level = Level.BASE, visibility = Visibility.EXTERNAL)
     public ActionResult doprocess(SliceContext ctx, InputParams params) {
-        log.info("Inside cancelPO Slice");
+        log.info("Inside cancelPO Slice AP");
         List<Map<String, String>> errors = POValidator.validate(ctx, params);
         if (!errors.isEmpty())
             return ActionResult.ofMap(ErrorUtil.buildErrorResponse(errors));
@@ -43,4 +43,6 @@ public class CancelPO {
                 AND EXT_PO_NO = :poNumber
                 """;
     }
+
+
 }
