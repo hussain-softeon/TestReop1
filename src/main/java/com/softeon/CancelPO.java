@@ -19,7 +19,7 @@ public class CancelPO {
 
     @NamedComponent(group = "inbound", name = "cancelPO", level = Level.BASE, visibility = Visibility.EXTERNAL)
     public ActionResult doprocess(SliceContext ctx, InputParams params) {
-        log.info("Inside cancelPO Slice API");
+        log.info("Inside cancelPO Slice API ");
         List<Map<String, String>> errors = POValidator.validate(ctx, params);
         if (!errors.isEmpty())
             return ActionResult.ofMap(ErrorUtil.buildErrorResponse(errors));
